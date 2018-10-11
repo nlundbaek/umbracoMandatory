@@ -1,0 +1,73 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage<ContentModels.Members>
+    @using ContentModels = Umbraco.Web.PublishedContentModels;
+    @{
+    Layout = "Master1.cshtml";
+    }
+
+    @{
+    var memberService = ApplicationContext.Current.Services.MemberService;
+
+    var activeMembers = memberService.GetMembersByGroup("Active");
+    var prospectMembers = memberService.GetMembersByGroup("Prosptect");
+
+                                                 <body class="backgroundColor">
+                                                    
+                                                     <div class="container" style="margin-top:10px">
+                                                         <div class="row">
+
+                                                             @foreach (var member in activeMembers)
+                                                             {
+                                                             <br />
+                                                           
+
+                                                             <div class="col-4" style="margin-top:20px">
+                                                                 <div class="card" style="width: 18rem;">
+                                                                     <img class="card-img-top" style="padding:10px" src="~/Image/no-profile-img.jpg" alt="Card image cap">
+                                                                     <div class="card-body">
+                                                                         <h5 class="card-title">Active Member</h5>
+                                                                         <p>
+                                                                             @(member.GetValue("firstname") + " "
+                                                                             + member.GetValue("lastname")) <br />
+                                                                             @member.GetValue("address")<br />
+                                                                             @(member.GetValue("zip") + " "
+                                                                             + member.GetValue("city")) <br />
+                                                                             Mobile: @member.GetValue("mobile")<br />
+                                                                         </p>
+
+                                                                     </div>
+                                                                 </div>
+                                                             </div>
+
+                                                            
+                                                             }
+
+
+
+                                                             @foreach (var member in prospectMembers)
+                                                             {
+                                                            
+                                                             <div class="col-4" style=" margin-top:20px">
+                                                                 <div class="card" style="width: 18rem;">
+                                                                     <img class="card-img-top" style="padding:10px" src="~/Image/no-profile-img.jpg" alt="Card image cap">
+                                                                     <div class="card-body">
+                                                                         <h5 class="card-title">Prospect Member</h5>
+                                                                         <p>
+                                                                             @(member.GetValue("firstname") + " "
+                                                                             + member.GetValue("lastname")) <br />
+                                                                            
+                                                                             Mobile: @member.GetValue("mobile")<br />
+                                                                             <br/><br/>
+                                                                         </p>
+
+                                                                     </div>
+                                                                 </div>
+                                                             </div>
+                                                           
+                                                             }
+
+                                                          </div>
+                                                     </div>
+                                                 </body>
+                                                     }
+
+                                         

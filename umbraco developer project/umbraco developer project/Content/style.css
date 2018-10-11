@@ -1,0 +1,25 @@
+﻿a:link {
+    color: black;
+}
+/* unvisited link */
+a:visited {
+    color: black;
+}
+/* visited link */
+a:hover {
+    color: black;
+}
+/* mouse over link */
+a:active {
+    color: black;
+}
+/* selected link */
+
+.navigationColor{
+    background-color:cornflowerblue;
+    text-align:center;
+    font-size:20px;
+}
+.backgroundColor{
+    background-color:azure;
+}

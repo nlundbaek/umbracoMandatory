@@ -1,0 +1,13 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage<ContentModels.Contact>
+@using ContentModels = Umbraco.Web.PublishedContentModels;
+@{
+	Layout = "Master1.cshtml";
+}
+    <script src="~/Scripts/jquery-2.1.3.min.js"></script>
+<script src="~/Scripts/bootstrap.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+                                                 <body class="backgroundColor">
+                                                     @Html.Action("Index", "ContactFormSurface");
+                                                 </body>

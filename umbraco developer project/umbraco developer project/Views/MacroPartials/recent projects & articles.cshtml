@@ -1,0 +1,71 @@
+﻿@inherits Umbraco.Web.Macros.PartialViewMacroPage
+
+
+
+
+@{
+	var selection = Model.Content.Site().FirstChild("projectsMain").Children("projectsItem")
+						.Where(x => x.IsVisible())
+						.OrderBy("CreateDate desc");
+	var counter = 0;					
+}
+
+<div class="container">
+    <h1 style="margin:20px">Recent Projects</h1>
+	@foreach(var item in selection){
+	if(counter < 2){
+	<div class="card w-10" style="margin:20px; padding:10px">
+           <div class="card-body">
+               <a href="@item.Url">
+                   <h5 class="card-title">@item.Name</h5>
+                   </a>
+                   <p class="card-text">  @item.GetPropertyValue("projectText")
+                                   
+                   </p>
+                 
+                   <p class="card-text">
+                         @item.CreateDate
+                   </p>
+                   <div class="card-footer text-info">
+                       @item.GetPropertyValue("status")
+                       
+                   </div>
+                   </div>
+                   </div>
+	    counter = counter +1;
+	}
+	}
+</div>
+
+
+@{
+	var selection2 = Model.Content.Site().FirstChild("articlesMain").Children("articlesItem")
+						.Where(x => x.IsVisible())
+						.OrderBy("CreateDate desc");
+	counter = 0;
+}
+
+
+<div class="container">
+    <h1 style="margin:20px">Recent Articles</h1>
+	@foreach(var item in selection2){
+	if(counter < 2){
+	<div class="card w-10" style="margin:20px; padding:10px">
+           <div class="card-body">
+               <a href="@item.Url">
+                   <h5 class="card-title">@item.Name</h5>
+                   </a>
+                   <p class="card-text">  @item.GetPropertyValue("articleText")
+                                   
+                   </p>
+                 
+                   <p class="card-text">
+                         @item.CreateDate
+                   </p>
+                   
+                   </div>
+                   </div>
+	    counter = counter +1;
+	}
+	}
+</div>

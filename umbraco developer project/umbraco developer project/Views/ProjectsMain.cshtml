@@ -1,0 +1,9 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage<ContentModels.ProjectsMain>
+@using ContentModels = Umbraco.Web.PublishedContentModels;
+@{
+	Layout = "Master1.cshtml";
+}
+
+                                                 <body class="backgroundColor">
+                                                     @Umbraco.RenderMacro("ProjectList")
+                                                 </body>
